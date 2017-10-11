@@ -1,14 +1,185 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>System</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Rayhope</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/skins/_all-skins.min.css">
+  <%= csrf_meta_tags %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body class="skin-green sidebar-mini">
+<div class="wrapper">
+
+<!-- ヘッダー -->
+<header class="main-header">
+  <a href="/" class="logo">
+    <span class="logo-mini">
+      <b>R</b>
+    </span>
+    <span class="logo-lg"><b>Ray</b>hope</span> 
+  </a>
+  <nav class="navbar navbar-static-top" role="navigation">
+    <a class="sidebar-toggle" href="#" data-toggle="offcanvas" role="button"></a>
+
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>ログイン</li>
+
+        
+
+        <!-- ログイン中の表示 -->
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            
+            
+          </a>
+          <ul class="dropdown-menu">
+            <!-- Menu Body -->
+            <li class="user-body">
+                <div class="pull-right">
+                  
+                </div>
+            </li>
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <div class="pull-right">
+                
+              </div>
+            </li>
+          </ul>
+        </li>
+
+        
+
+        <!-- ログアウト中の表示 -->
+        <li></li>
+
+        
+      </ul>
+    </div><!-- ./navbar-custom-menu -->
+  </nav>
+</header>
+
+<!-- サイドメニュー -->
+<aside class="main-sidebar">
+  <section class="sidebar">
+    
+    <!-- ログイン中の表示 -->
+    <ul class="sidebar-menu">
+      <li class="header">メニュー</li>
+      
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>デザイン画集</span>
+        
+      </li>
+      <li class="treeview">
+       
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>加工価格表</span>
+        
+      </li>
+      <li class="treeview">
+       
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>画像（家紋集）</span>
+        
+      </li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>写真集（過去実績）</span>
+       
+      </li>
+      
+    </ul>
+    <ul class="sidebar-menu">
+     <li class="header">管理者メニュー</li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-info"></i>
+           <span>顧客管理</span>
+        
+      </li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-warning"></i>
+          <span>注文管理</span>
+        
+      </li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>売上管理</span>
+        
+      </li>
+     <li class="treeview">
+        <%= link_to(users_path) do %>
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>管理者一覧</span>
+        <% end %>
+      </li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>プロジェクト</span>
+        
+      </li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>ノート</span>
+       
+      </li>
+      
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span>画像</span>
+        
+      </li>
+      <li class="treeview">
+        
+          <i class="fa fa-circle-o text-danger"></i>
+          <span></span>
+        
+      </li>
+      <li class="treeview">
+       
+          <i class="fa fa-circle-o text-danger"></i>
+          <span></span>
+        
+      </li>
+    </ul>
+    
+  </section>
+</aside>
+
+<!-- コンテンツ -->
+<div class="content-wrapper">
+  <% if notice %>
+    <%= notice %>
+  <% end %>
+  <% flash.each do |message_type, message| %> <!-- ここから -->
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %> <!-- ここまで追加 -->
+
+  <%= yield %>
+</div>  
+
+</div><!-- /.wrapper -->
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/js/app.min.js"></script>
+
+</body>
 </html>
