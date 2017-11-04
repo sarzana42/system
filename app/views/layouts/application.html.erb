@@ -14,10 +14,11 @@
 </head>
 
 <body class="skin-green sidebar-mini">
+<% if logged_in? %>
 <div class="wrapper">
 
 <!-- ヘッダー -->
-<header class="main-header">
+<header class="main-header navbar navbar-fixed-top navbar-inverse">
   <a href="/" class="logo">
     <span class="logo-mini">
       <b>R</b>
@@ -27,44 +28,15 @@
   <nav class="navbar navbar-static-top" role="navigation">
     <a class="sidebar-toggle" href="#" data-toggle="offcanvas" role="button"></a>
 
-    <div class="navbar-custom-menu">
-      <ul class="nav navbar-nav">
-        <li></li>
-        <li>ログイン</li>
-
-        
-
-        <!-- ログイン中の表示 -->
-        <!-- User Account: style can be found in dropdown.less -->
-        <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            
-            
-          </a>
-          <ul class="dropdown-menu">
-            <!-- Menu Body -->
-            <li class="user-body">
-                <div class="pull-right">
-                  
-                </div>
-            </li>
-            <!-- Menu Footer-->
-            <li class="user-footer">
-              <div class="pull-right">
-                
-              </div>
-            </li>
-          </ul>
-        </li>
-
-        
-
-        <!-- ログアウト中の表示 -->
-        <li></li>
-
-        
+    <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home", root_path %></li>
+        <% if logged_in? %>
+          <li>
+            <%= link_to "Log out", logout_path, method: "delete" %>
+          </li>
+        <% end %>
       </ul>
-    </div><!-- ./navbar-custom-menu -->
+    
   </nav>
 </header>
 
@@ -177,6 +149,34 @@
 </div>  
 
 </div><!-- /.wrapper -->
+
+<% else %>
+    <!-- ログアウト中の表示 -->
+    <header class="main-header navbar navbar-fixed-top navbar-inverse">
+      <a href="/" class="logo">
+        <span class="logo-mini">
+          <b>R</b>
+        </span>
+        <span class="logo-lg"><b>Ray</b>hope</span> 
+      </a>
+    </header>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Log in</h1>
+        <%= form_for(:session, url: login_path) do |f| %>
+    
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control' %>
+    
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control' %>
+          <br>
+          <%= f.submit "Log in", class: "btn btn-primary" %>
+        <% end %>
+        <br>
+      </div>
+    </div>
+<% end %>
 
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/js/app.min.js"></script>
