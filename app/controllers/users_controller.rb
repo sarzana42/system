@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :destroy]
   
   def new
     @user = User.new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "ようこそ！レイホープへ"
+      flash[:success] = "ようこそ！レイホープ管理ページへ"
       redirect_to @user
     else
       render 'new'
@@ -32,6 +32,11 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @user.destroy
+    redirect_to users_path, notice: '削除しました'
   end
   
   

@@ -29,6 +29,7 @@
           </td>
           <td><%= user.email %></td>
           <td><%= link_to "edit", edit_user_path(user) %></td>
+          <td><%= link_to "destroy", user, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
         </tr>
         <% end %>
       </table>
