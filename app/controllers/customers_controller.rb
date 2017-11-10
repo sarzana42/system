@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  
   def index
     @customers = Customer.all
   end
@@ -13,21 +15,41 @@ class CustomersController < ApplicationController
       flash[:success] = '登録できました'
       redirect_to @customer
     else
-      render 'new'
+      @customers = Customer.all
+      flash.now[:alert] = "メッセージの保存に失敗しました。"
+      render 'index'
     end
+  end
     
-    def show
-      @customer = Customer.find(params[:id])
-    end
-    
-    
+  def show
   end
   
+  def edit
+  end
+  
+  def update
+    if @customer.update(customer_params)
+      redirect_to customer_path, notice: '編集しました'
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @customer.destroy
+    redirect_to customers_path, notice: '削除しました'
+  end
+    
+    
   
 private
 
   def customer_params
     params.require(:customer).permit(:groupcus, :kubun, :maildm, :name1, :name2, :kana1, :kana2, :zip, :address1, :address2, :address3, :tel1, :tel2, :fax, :email, :lineid, :skypeid, :danjo, :birth, :piccus, :remark)
+  end
+  
+  def set_customer
+    @customer = Customer.find(params[:id])
   end
   
 end
