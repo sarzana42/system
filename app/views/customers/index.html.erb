@@ -1,2 +1,43 @@
-<h1>Customers#index</h1>
-<p>Find me in app/views/customers/index.html.erb</p>
+<section class="content-header">
+  <h1>顧客一覧</h1>
+</section>
+
+<section class="content">
+  <div class="box">
+    <div class="box-header">
+      <%= link_to "新規登録", new_customer_path %>
+      <div class="box-tools">
+        <!-- 検索 -->
+      
+      <!-- 検索end -->
+      </div>
+    </div><!-- /.box-header -->
+
+<div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>会社・所属</th>
+            <th>名前</th>
+            <th>メールアドレス</th>
+            <th>編集</th>
+            <th>削除</th>
+          </tr>
+        </thead>
+        <% @customers.each do |customer| %>
+        <tr>
+        　<td>
+            <%= link_to customer.groupcus, customer_path(customer) %>
+          </td>
+          <td>
+            <%= link_to customer.name, customer_path(customer) %>
+          </td>
+          <td><%= customer.email %></td>
+          <td><%= link_to "edit", edit_customer_path(customer) %></td>
+          <td><%= link_to "destroy", customer, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div><!-- /.box -->
+</section>

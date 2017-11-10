@@ -1,0 +1,2 @@
+class Kubun < ApplicationRecord
+end

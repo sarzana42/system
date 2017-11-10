@@ -1,0 +1,2 @@
+class Maildm < ApplicationRecord
+end
