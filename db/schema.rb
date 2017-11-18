@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113095423) do
+ActiveRecord::Schema.define(version: 20171113110117) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "kubun"
@@ -56,6 +56,21 @@ ActiveRecord::Schema.define(version: 20171113095423) do
     t.text     "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "productdetails", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "colorcode"
+    t.string   "colorname"
+    t.string   "sizecode"
+    t.string   "sizename"
+    t.string   "vprice"
+    t.string   "wprice"
+    t.string   "price"
+    t.string   "stock"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_productdetails_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
