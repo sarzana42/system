@@ -13,7 +13,7 @@
         <label for="kubun" class="col col-xs-12 col-sm-4 col-md-3 control-label">区分</label>
         <div class="col-xs-12 colcol-xs-10 col-sm-6 col-md-7">
           <div class="input-group">
-            <%= f.collection_select :kubun, Kubun.all, :id, :name, {prompt: true}, {class: "form-control"} %>
+            <%= f.collection_select :kubun, Kubun.all, :kubun, :name, {prompt: true}, {class: "form-control"} %>
           </div>
         </div>
         <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2"></div>
@@ -72,8 +72,8 @@
       <div class="form-group">
         <label for="pref" class="col col-xs-12 col-sm-4 col-md-3 control-label">住所</label>
         <div class="col col-xs-7 col-sm-4 col-md-3">
-            <%= f.text_field :address1, class: 'form-control' %>
-          <select name="pref" id="pref" class="form-control">
+            
+          <%= f.select :address1, [["北海道", "北海道"], ["青森県", "青森県"], ["岩手県", "岩手県"], ["宮城県", "宮城県"], ["秋田県", "秋田県"], ["山形県", "山形県"], ["福島県", "福島県"], ["茨城県", "茨城県"], ["栃木県", "栃木県"]],  :include_blank => true %>
             <option value="北海道">北海道</option>
             <option value="青森県">青森県</option>
             <option value="岩手県">岩手県</option>

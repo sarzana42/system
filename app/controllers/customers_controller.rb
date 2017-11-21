@@ -27,6 +27,13 @@ class CustomersController < ApplicationController
   def edit
   end
   
+  def update
+    if @customer.update(customer_params)
+      redirect_to customer_path, notice: '編集しました'
+    else
+      render 'edit'
+    end
+  end
   
     
     

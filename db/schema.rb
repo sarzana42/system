@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171113110117) do
+ActiveRecord::Schema.define(version: 20171121012233) do
 
   create_table "customers", force: :cascade do |t|
-    t.string   "kubun"
     t.string   "groupcus"
     t.string   "maildm"
     t.string   "name1"
@@ -36,7 +35,9 @@ ActiveRecord::Schema.define(version: 20171113110117) do
     t.string   "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "kubun_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["kubun_id"], name: "index_customers_on_kubun_id"
   end
 
   create_table "kubuns", force: :cascade do |t|
