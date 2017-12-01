@@ -12,8 +12,8 @@
 <section class="content">
   <div class="box">
     <div class="box-body">
-      <% if @customer.piccus? %>
-　　    <%= image_tag @customer.piccus.thumb.url %>
+      <% if @customer.image? %>
+　　    <%= image_tag @customer.image.thumb.url %>
 　    <% else %>
 　　    <%= image_tag 'noimage.gif' %>
 　    <% end %>
@@ -36,7 +36,9 @@
       <div class="form-group">
           <label for="maildm" class="col col-xs-12 col-sm-4 col-md-3 control-label">許可項目</label>
           <div class="col col-xs-5 col-sm-3 col-md-3">
-            <%= @customer.maildm %>
+            <% @customer.maildms.each do |maildm| %>
+              <div class="label label-default"><%= maildm.name %></div>
+            <% end %>
           </div>
           <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
       </div>

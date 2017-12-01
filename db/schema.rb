@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123150124) do
+ActiveRecord::Schema.define(version: 20171201015143) do
 
   create_table "customermaildms", force: :cascade do |t|
     t.integer  "customer_id"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20171123150124) do
 
   create_table "customers", force: :cascade do |t|
     t.string   "groupcus"
-    t.string   "maildm"
     t.string   "name1"
     t.string   "name2"
     t.string   "kana1"
@@ -38,13 +37,13 @@ ActiveRecord::Schema.define(version: 20171123150124) do
     t.string   "email"
     t.string   "lineid"
     t.string   "skypeid"
-    t.string   "piccus"
     t.string   "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "kubun_id"
     t.datetime "birth"
     t.integer  "danjo"
+    t.string   "image"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["kubun_id"], name: "index_customers_on_kubun_id"
   end

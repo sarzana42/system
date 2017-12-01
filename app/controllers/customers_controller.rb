@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 private
 
   def customer_params
-    params.require(:customer).permit(:groupcus, :kubun_id, :maildm, :name1, :name2, :kana1, :kana2, :zip, :address1, :address2, :address3, :tel1, :tel2, :fax, :email, :lineid, :skypeid, :danjo, :birth, :piccus, :remark)
+    params.require(:customer).permit(:groupcus, :kubun_id, :name1, :name2, :kana1, :kana2, :zip, :address1, :address2, :address3, :tel1, :tel2, :fax, :email, :lineid, :skypeid, :danjo, :birth, :image, :remark, {:maildm_ids => []})
   end
   
   def set_customer
