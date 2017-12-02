@@ -1,5 +1,17 @@
 class ProductdetailsController < ApplicationController
     before_action :logged_in_user, only: [:create]
+    
+  def index
+  end
+  
+  def new
+    @productdetail = Productdetail.new
+  end
+  
+  def show
+    @productdetail = Productdetail.find(params[:id])
+  end
+
 
   def create
     @productdetail = product.productdetails.build(productdetail_params)
@@ -13,6 +25,6 @@ class ProductdetailsController < ApplicationController
   
   private
   def productdetail_params
-    params.require(:productdetail).permit(:colorcode, :colorname, :sizecode, :sizename, :vprice, :wprice, :price, :stock)
+    params.require(:productdetail).permit(:id, :colorcode, :colorname, :sizecode, :sizename, :vprice, :wprice, :price, :stock, {:product_ids => []})
   end
 end

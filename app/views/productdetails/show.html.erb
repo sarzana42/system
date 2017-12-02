@@ -1,0 +1,112 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>商品詳細ページ</h1>
+  <br>
+  <p><%= link_to "商品ページに戻る", products_path %></p>
+  <br>
+  （<%= link_to "編集する", edit_productdetail_path %>｜
+<%= link_to "削除する", productdetail_path, method: :delete, data: { confirm: "本当によろしいですか？"} %>）
+
+</section>
+
+<section class="content">
+  <div class="box">
+    <div class="box-body">
+      <% if @productdetail.image? %>
+　　    <%= image_tag @productdetail.image.thumb.url %>
+　    <% else %>
+　　    <%= image_tag 'noimage.gif' %>
+　    <% end %>
+　    <div class="form-group">
+          <label for="id" class="col col-xs-12 col-sm-4 col-md-3 control-label">ID</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @productdetail.id %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="product_id" class="col col-xs-12 col-sm-4 col-md-3 control-label">商品ID</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @productdetail.product_id %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="colorcode" class="col col-xs-12 col-sm-4 col-md-3 control-label">カラーコード</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @productdetail.colorcode %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="colorname" class="col-xs-12 col col-sm-4 col-md-3 control-label">カラー</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @productdetail.colorname %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="sizecode" class="col col-xs-12 col-sm-4 col-md-3 control-label">サイズコード</label>
+          <div class="col col-xs-7 col-sm-4 col-md-4">
+            <div class="input-group">
+              <%= @productdetail.sizecode %>
+            </div>
+          </div>
+          <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-5"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="sizename" class="col col-xs-12 col-sm-4 col-md-3 control-label">サイズ</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @productdetail.sizename %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="vprice" class="col col-xs-12 col-sm-4 col-md-3 control-label">定価</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @productdetail.vprice %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="wprice" class="col col-xs-12 col-sm-4 col-md-3 control-label">販売価格</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @productdetail.wprice %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="price" class="col col-xs-12 col-sm-4 col-md-3 control-label">仕入価格</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @productdetail.price %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="stock" class="col col-xs-12 col-sm-4 col-md-3 control-label">在庫数量</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @productdetail.stock %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="remark" class="col col-xs-12 col-sm-4 col-md-3 control-label">備考欄</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @customer.remark %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+        </div>
+        <br>
+    </div>
+  </div>    
+</section>
