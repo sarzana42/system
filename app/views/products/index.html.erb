@@ -34,7 +34,7 @@
           <td><%= product.name %></td>
           <td><%= link_to "編集", edit_product_path(product) %></td>
           <td><%= link_to "確認", product_path(product) %></td>
-          <td><%= link_to "規格", productdetails_path %></td>
+          <td><%= link_to "規格", productdetails_path(@product) %></td>
           <td><%= link_to "削除", product, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
           <td><%= link_to "複製", product_path(product) %></td>
         </tr>

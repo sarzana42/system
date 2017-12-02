@@ -1,5 +1,5 @@
 <section class="content-header">
-  <h1>商品一覧</h1>
+  <h1>商品詳細一覧</h1>
 </section>
 
 <section class="content">
@@ -21,12 +21,11 @@
             <th>商品名</th>
             <th>編集</th>
             <th>確認</th>
-            <th>規格</th>
             <th>削除</th>
             <th>複製</th>
           </tr>
         </thead>
-        <% @productdetail.each do |productdetail| %>
+        <% @productdetails.each do |productdetail| %>
         <tr>
           <td>
             <%= productdetail.id %>
@@ -34,7 +33,6 @@
           <td><%= productdetail.colorname %></td>
           <td><%= link_to "編集", edit_productdetail_path(productdetail) %></td>
           <td><%= link_to "確認", productdetail_path(productdetail) %></td>
-          <td><%= link_to "規格", productdetails_path(productdetail) %></td>
           <td><%= link_to "削除", productdetail, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
           <td><%= link_to "複製", productdetail_path(productdetail) %></td>
         </tr>
