@@ -2,6 +2,7 @@ class ProductdetailsController < ApplicationController
     before_action :logged_in_user, only: [:create]
     
   def index
+    @productdetail = Productdetail.all
   end
   
   def new
@@ -14,7 +15,7 @@ class ProductdetailsController < ApplicationController
 
 
   def create
-    @productdetail = product.productdetails.build(productdetail_params)
+    @productdetail = Productdetail.new(productdetail_params)
     if @productdetail.save
       flash[:success] = "productdetail created!"
       redirect_to root_url

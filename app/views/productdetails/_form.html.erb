@@ -9,69 +9,85 @@
           <% end %>
         <% end %>
         
-      <div class="form-group">
+        
+        <div class="form-group">
           <label for="product_id" class="col col-xs-12 col-sm-4 col-md-3 control-label">商品ID</label>
           <div class="col col-xs-5 col-sm-3 col-md-3">
-            <%= f.text_field :product_id, class: 'form-control', placeholder: '会社名またはグループ名' %>
+            <%= @productdetail.product_id %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+        
+        <div class="form-group">
+          <label for="colorcode" class="col col-xs-12 col-sm-4 col-md-3 control-label">カラーコード</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= f.text_field :colorcode, class: 'form-control', placeholder: '姓' %>
           </div>
           <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
         </div>
         <div class="form-group">
-          <label for="colorcode" class="col col-xs-12 col-sm-4 col-md-3 control-label">お名前</label>
-          <div class="col col-xs-5 col-sm-3 col-md-3">
-            <%= f.text_field :colorcode, class: 'form-control', placeholder: '姓' %>
-          </div>
+          <label for="colorname" class="col col-xs-12 col-sm-4 col-md-3 control-label">カラー</label>
           <div class="col col-xs-5 col-sm-3 col-md-3">
             <%= f.text_field :colorname, class: 'form-control', placeholder: '名' %>
           </div>
           <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
         </div>
+        
       
       <div class="form-group">
-        <label for="kana" class="col-xs-12 col col-sm-4 col-md-3 control-label">お名前（フリガナ）</label>
+        <label for="sizecode" class="col-xs-12 col col-sm-4 col-md-3 control-label">サイズコード</label>
         <div class="col col-xs-5 col-sm-3 col-md-3">
-          <%= f.text_field :sizecode, class: 'form-control', placeholder: 'セイ' %>
+          <%= f.text_field :sizecode, class: 'form-control', placeholder: '数字を入れてください' %>
+          <p class="help-block">（例:123）</p>
         </div>
+        <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="sizename" class="col-xs-12 col col-sm-4 col-md-3 control-label">サイズコード</label>
         <div class="col col-xs-5 col-sm-3 col-md-3">
-          <%= f.text_field :sizename, class: 'form-control', placeholder: 'メイ' %>
+          <%= f.text_field :sizename, class: 'form-control', placeholder: 'S,M,L,XL' %>
+          <p class="help-block">（例:S,M,L,XL）</p>
         </div>
         <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
       </div>
       
       
       <div class="form-group">
-        <label for="tel" class="col col-xs-12 col-sm-4 col-md-3 control-label">電話番号</label>
+        <label for="vprice" class="col col-xs-12 col-sm-4 col-md-3 control-label">小売価格</label>
         <div class="col-xs-12 col col-xs-10 col-sm-6 col-md-7">
           <div class="input-group">
-            <%= f.text_field :vprice, class: 'form-control', placeholder: '0775227666' %>
+            <%= f.text_field :vprice, class: 'form-control', placeholder: '350' %>
+            <p class="help-block">（例:350）</p>
           </div>
         </div>
         <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2"></div>
       </div>
       <div class="form-group">
-          <label for="tel" class="col col-xs-12 col-sm-4 col-md-3 control-label">携帯電話</label>
+          <label for="wprice" class="col col-xs-12 col-sm-4 col-md-3 control-label">卸価格</label>
           <div class="col col-xs-12 col-xs-10 col-sm-6 col-md-7">
               <div class="input-group">
-                  <%= f.text_field :wprice, class: 'form-control', placeholder: '08012345678' %>
-                  <p class="help-block">（例:08012345678）</p>
+                  <%= f.text_field :wprice, class: 'form-control', placeholder: '350' %>
+                  <p class="help-block">（例:350）</p>
               </div>
           </div>
           <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
         </div>
         <div class="form-group">
-          <label for="tel" class="col col-xs-12 col-sm-4 col-md-3 control-label">FAX番号</label>
+          <label for="price" class="col col-xs-12 col-sm-4 col-md-3 control-label">仕入価格</label>
           <div class="col col-xs-12 col-xs-10 col-sm-6 col-md-7">
               <div class="input-group">
-                  <%= f.text_field :price, class: 'form-control', placeholder: '0771235678' %>
-                  <p class="help-block">（例:07712345678）</p>
+                  <%= f.text_field :price, class: 'form-control', placeholder: '300' %>
+                  <p class="help-block">（例:300）</p>
               </div>
           </div>
           <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
         </div>
       <div class="form-group">
-        <label for="email" class="col col-xs-12 col-sm-4 col-md-3 control-label">メールアドレス</label>
+        <label for="stock" class="col col-xs-12 col-sm-4 col-md-3 control-label">在庫数</label>
         <div class="col col-xs-12 col-sm-6 col-md-7">
-            <%= f.text_field :stock, class: 'form-control', placeholder: 'メールアドレスを入力してください' %>
+            <%= f.text_field :stock, class: 'form-control', placeholder: '在庫数を入れてください。' %>
         </div>
         <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
       </div>

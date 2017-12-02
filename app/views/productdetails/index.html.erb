@@ -5,7 +5,7 @@
 <section class="content">
   <div class="box">
     <div class="box-header">
-      <%= link_to "新規登録", new_product_path %>
+      <%= link_to "新規登録", new_productdetail_path %>
       <div class="box-tools">
         <!-- 検索 -->
       
@@ -26,17 +26,17 @@
             <th>複製</th>
           </tr>
         </thead>
-        <% @products.each do |product| %>
+        <% @productdetail.each do |productdetail| %>
         <tr>
           <td>
-            <%= product.productid %>
+            <%= productdetail.id %>
           </td>
-          <td><%= product.name %></td>
-          <td><%= link_to "編集", edit_product_path(product) %></td>
-          <td><%= link_to "確認", product_path(product) %></td>
-          <td><%= link_to "規格", productdetails_path %></td>
-          <td><%= link_to "削除", product, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
-          <td><%= link_to "複製", product_path(product) %></td>
+          <td><%= productdetail.colorname %></td>
+          <td><%= link_to "編集", edit_productdetail_path(productdetail) %></td>
+          <td><%= link_to "確認", productdetail_path(productdetail) %></td>
+          <td><%= link_to "規格", productdetails_path(productdetail) %></td>
+          <td><%= link_to "削除", productdetail, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
+          <td><%= link_to "複製", productdetail_path(productdetail) %></td>
         </tr>
         <% end %>
       </table>

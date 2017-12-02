@@ -9,9 +9,9 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.6'
 
-gem 'sqlite3', :group => [:development, :test]
+gem 'sqlite3', groups: %w(test development), require: false
 # 本番ではpostgressを使用する
-gem 'pg', group: :production
+gem 'pg', groups: %w(production), require: false
 gem "rails_12factor", group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
