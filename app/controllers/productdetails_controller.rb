@@ -3,7 +3,8 @@ class ProductdetailsController < ApplicationController
     before_action :set_productdetail, only: [:show, :edit, :update, :destroy]
     
   def index
-    @productdetails = Productdetail.all
+    @product = Product.find(params[:product_id])
+    @productdetails = @product.productdetails
   end
   
   def new

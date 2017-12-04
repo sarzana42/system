@@ -7,8 +7,16 @@ class ProductsController < ApplicationController
   
   def new
     @product = Product.new
+
+    # copy_id があったときだけ、やる処理
+    if not params[:copy_id].nil?
+      copy_product = Product.find(params[:copy_id])
+      @product.name = copy_product.name
+      # ...
+      @product.remark = copy_product.remark
+    end
   end
-  
+
   def create
     @product = Product.new(product_params)
     if @product.save
