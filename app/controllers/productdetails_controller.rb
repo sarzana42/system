@@ -8,6 +8,7 @@ class ProductdetailsController < ApplicationController
   end
   
   def new
+    @product = Product.find(params[:product_id])
     @productdetail = Productdetail.new
     
   end
@@ -18,11 +19,12 @@ class ProductdetailsController < ApplicationController
 
   def create
     @productdetail = Productdetail.new(productdetail_params)
+    @productdetail.product_id = params[:product_id]
     if @productdetail.save
       flash[:success] = "productdetail created!"
-      redirect_to @productdetail
+      redirect_to product_productdetails_path(params[:product_id])
     else
-      @productdetails = Productdetail.all
+      @product = Product.find(params[:product_id])
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'new'
     end

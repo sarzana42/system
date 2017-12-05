@@ -12,7 +12,9 @@ class ProductsController < ApplicationController
     if not params[:copy_id].nil?
       copy_product = Product.find(params[:copy_id])
       @product.name = copy_product.name
-      # ...
+      @product.productpic = copy.product.productpic
+      @product.productinfo = copy.product.productinfo
+      @product.maker = copy_product.maker
       @product.remark = copy_product.remark
     end
   end
