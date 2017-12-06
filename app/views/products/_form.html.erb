@@ -13,7 +13,7 @@
         <label for="kubun" class="col col-xs-12 col-sm-4 col-md-3 control-label">メーカー名</label>
         <div class="col-xs-12 colcol-xs-10 col-sm-6 col-md-7">
           <div class="input-group">
-            <%= f.collection_select :maker, Maker.all, :id, :name, {prompt: true}, {class: "form-control"} %>
+            <%= f.collection_select :maker_id, Maker.all, :id, :name, {prompt: true}, {class: "form-control"} %>
           </div>
         </div>
         <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2"></div>

@@ -12,8 +12,7 @@ class ProductsController < ApplicationController
     if not params[:copy_id].nil?
       copy_product = Product.find(params[:copy_id])
       @product.name = copy_product.name
-      @product.productpic = copy.product.productpic
-      @product.productinfo = copy.product.productinfo
+      
       @product.maker = copy_product.maker
       @product.remark = copy_product.remark
     end
@@ -53,7 +52,7 @@ class ProductsController < ApplicationController
 private
 
   def product_params
-    params.require(:product).permit(:maker, :productid, :name, :productinfo, :productpic, :remark)
+    params.require(:product).permit(:maker_id, :productid, :name, :productinfo, :productpic, :remark)
   end
 
  def set_product
