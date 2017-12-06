@@ -78,4 +78,47 @@
     </div>
   </div>    
 </section>
+<section class="content-header">
+  <h1>商品詳細一覧</h1>
+</section>
+
+<section class="content">
+  <div class="box">
+    <div class="box-header">
+      <div class="box-tools">
+        <!-- 検索 -->
+      
+      <!-- 検索end -->
+      </div>
+    </div><!-- /.box-header -->
+<%= link_to "新規登録", new_product_productdetail_path(@product) %>
+<div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>商品型番</th>
+            <th>商品名</th>
+            <th>編集</th>
+            <th>確認</th>
+            <th>削除</th>
+            <th>複製</th>
+          </tr>
+        </thead>
+        <% @productdetails.each do |productdetail| %>
+        <tr>
+          <td>
+            <%= productdetail.id %>
+          </td>
+          <td><%= productdetail.colorname %></td>
+          <td><%= link_to "編集", edit_productdetail_path(productdetail) %></td>
+          <td><%= link_to "確認", productdetail_path(productdetail) %></td>
+          <td><%= link_to "削除", productdetail, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
+          <td><%= link_to "複製", productdetail_path(productdetail) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div><!-- /.box -->
+</section>
+
 
