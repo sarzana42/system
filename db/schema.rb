@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205081830) do
+ActiveRecord::Schema.define(version: 20171207105404) do
+
+  create_table "collectionmethods", force: :cascade do |t|
+    t.string   "name"
+    t.string   "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customermaildms", force: :cascade do |t|
     t.integer  "customer_id"
@@ -48,6 +55,13 @@ ActiveRecord::Schema.define(version: 20171205081830) do
     t.index ["kubun_id"], name: "index_customers_on_kubun_id"
   end
 
+  create_table "deliverymethods", force: :cascade do |t|
+    t.string   "name"
+    t.string   "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "kubuns", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -65,6 +79,24 @@ ActiveRecord::Schema.define(version: 20171205081830) do
     t.text     "remark"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.date     "firstorderdate"
+    t.date     "startdate"
+    t.date     "finishdate"
+    t.integer  "deliverymethod_id"
+    t.integer  "collectionmethod_id"
+    t.date     "collectiondate"
+    t.date     "deliverydate"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "image"
+    t.text     "remark"
+    t.index ["collectionmethod_id"], name: "index_orders_on_collectionmethod_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+    t.index ["deliverymethod_id"], name: "index_orders_on_deliverymethod_id"
   end
 
   create_table "productdetails", force: :cascade do |t|

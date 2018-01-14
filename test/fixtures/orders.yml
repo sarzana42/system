@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  firstorderdate: 2017-12-07
+  startdate: 2017-12-07
+  finishdate: 2017-12-07
+  deliverymethod: one
+  collectionmethod: one
+  collectiondate: 2017-12-07
+  deliverydate: 2017-12-07
+
+two:
+  customer: two
+  firstorderdate: 2017-12-07
+  startdate: 2017-12-07
+  finishdate: 2017-12-07
+  deliverymethod: two
+  collectionmethod: two
+  collectiondate: 2017-12-07
+  deliverydate: 2017-12-07
