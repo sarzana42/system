@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120020156) do
+ActiveRecord::Schema.define(version: 20180120150527) do
 
   create_table "collectionmethods", force: :cascade do |t|
     t.string   "name"
@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(version: 20180120020156) do
     t.datetime "updated_at",          null: false
     t.string   "image"
     t.text     "remark"
+    t.string   "ordername"
+    t.string   "orderid"
     t.index ["collectionmethod_id"], name: "index_orders_on_collectionmethod_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["deliverymethod_id"], name: "index_orders_on_deliverymethod_id"

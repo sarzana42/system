@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  
   def index
     @orders = Order.all
     
@@ -28,12 +30,20 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
   
-private
-  def order_params
-    params.require(:order).permit(:id, :customer_id, :firstorderdate, :startdate, :finishdate, :deliverymethod_id, :collectionmethod_id, :collectiondate, :deliverydate, :image, :remark)
+  def update
+    if @order.update(order_params)
+      redirect_to orders_path, notice: '編集しました'
+    else
+      render 'edit'
+    end
   end
   
-  def set_productdetail
+private
+  def order_params
+    params.require(:order).permit(:id, :ordername, :orderid, :customer_id, :firstorderdate, :startdate, :finishdate, :deliverymethod_id, :collectionmethod_id, :collectiondate, :deliverydate, :image, :remark)
+  end
+  
+  def set_order
     @order = Order.find(params[:id])
   end
   

@@ -8,7 +8,13 @@
              <%= full_message %>
           <% end %>
         <% end %>
-
+      <div class="form-group">
+          <label for="ordername" class="col col-xs-12 col-sm-4 col-md-3 control-label">注文ID</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= o.text_field :orderid, class: 'form-control', placeholder: 'Z0320' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
       <div class="form-group">
         <label for="customer_id" class="col col-xs-12 col-sm-4 col-md-3 control-label">顧客</label>
         <div class="col-xs-12 colcol-xs-10 col-sm-6 col-md-7">
@@ -20,14 +26,22 @@
       </div>
       
       <div class="form-group">
-          <label for="firstorderdate" class="col col-xs-12 col-sm-4 col-md-3 control-label">初回注文日</label>
+          <label for="ordername" class="col col-xs-12 col-sm-4 col-md-3 control-label">注文名</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= o.text_field :ordername, class: 'form-control', placeholder: '20180120レイホープポロシャツ' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      
+      <div class="form-group">
+          <label for="firstorderdate" class="col col-xs-12 col-sm-4 col-md-3 control-label">お問合せ日</label>
           <div class="col col-xs-5 col-sm-3 col-md-3">
             <%= o.date_field :firstorderdate, class: 'form-control', placeholder: '20171205' %>
           </div>
           <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
-        </div>
+      </div>
         <div class="form-group">
-          <label for="startdate" class="col col-xs-12 col-sm-4 col-md-3 control-label">開始日</label>
+          <label for="startdate" class="col col-xs-12 col-sm-4 col-md-3 control-label">受注日</label>
           <div class="col col-xs-5 col-sm-3 col-md-3">
             <%= o.date_field :startdate, class: 'form-control', placeholder: '20171205' %>
           </div>
@@ -35,7 +49,7 @@
         </div>
       
       <div class="form-group">
-        <label for="finishdate" class="col-xs-12 col col-sm-4 col-md-3 control-label">終了日</label>
+        <label for="finishdate" class="col-xs-12 col col-sm-4 col-md-3 control-label">納品希望</label>
         <div class="col col-xs-5 col-sm-3 col-md-3">
           <%= o.date_field :finishdate, class: 'form-control', placeholder: '20171205' %>
         </div>
