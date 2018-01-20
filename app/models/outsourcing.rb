@@ -1,0 +1,2 @@
+class Outsourcing < ApplicationRecord
+end

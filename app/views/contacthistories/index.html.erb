@@ -1,0 +1,33 @@
+<section class="content-header">
+  <h1>対応履歴一覧</h1>
+</section>
+
+<%= link_to "新規登録", new_contacthistory_path(@contacthistory) %>
+<div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>商品型番</th>
+            <th>商品名</th>
+            <th>編集</th>
+            <th>確認</th>
+            <th>削除</th>
+            <th>複製</th>
+          </tr>
+        </thead>
+        <% @contacthistories.each do |contacthistory| %>
+        <tr>
+          <td>
+            <%= contacthistory.id %>
+          </td>
+          <td><%= contacthistory.name %></td>
+          <td><%= link_to "編集", edit_contacthistory_path(contacthistory) %></td>
+          <td><%= link_to "確認", contacthistory_path(contacthistory) %></td>
+          <td><%= link_to "削除", contacthistory, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>
+          <td><%= link_to "複製", contacthistory_path(contacthistory) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div><!-- /.box -->
+</section>

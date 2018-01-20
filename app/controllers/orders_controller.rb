@@ -1,10 +1,15 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.all
+    
   end
   
   def new
     @order = Order.new
+  end
+  
+  def show
+    @order = Order.find(params[:id])
   end
   
   def create
@@ -17,6 +22,10 @@ class OrdersController < ApplicationController
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'index'
     end
+  end
+  
+  def edit
+    @order = Order.find(params[:id])
   end
   
 private

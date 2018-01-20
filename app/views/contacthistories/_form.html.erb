@@ -1,0 +1,68 @@
+<div class="well">
+    <%= form_for(@contacthistory, html: { class: "form-horizontal" }) do |c| %>
+    <fieldset>
+      <legend>登録・編集</legend>
+        <% if @contacthistory.errors.present? %>
+           <%= alert %>
+           <% @contacthistory.errors.full_messages.each do |full_message| %>
+             <%= full_message %>
+          <% end %>
+        <% end %>
+
+      <div class="form-group">
+        <label for="order_id" class="col col-xs-12 col-sm-4 col-md-3 control-label">注文ID</label>
+        <div class="col-xs-12 colcol-xs-10 col-sm-6 col-md-7">
+          <div class="input-group">
+            <%= c.collection_select :order_id, Order.all, :id, :id, {prompt: true}, {class: "form-control"} %>
+          </div>
+        </div>
+        <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2"></div>
+      </div>
+      
+      <div class="form-group">
+          <label for="tile" class="col col-xs-12 col-sm-4 col-md-3 control-label">タイトル</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= c.text_field :tile, class: 'form-control', placeholder: 'プリントの見積もりについて' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+        </div>
+      
+      <div class="form-group">
+          <label for="kubun" class="col col-xs-12 col-sm-4 col-md-3 control-label">区分</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= c.text_field :kubun, class: 'form-control' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      
+      <div class="form-group">
+          <label for="contactus" class="col col-xs-12 col-sm-4 col-md-3 control-label">内容</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= c.text_area :contactus, class: 'form-control' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="answer" class="col col-xs-12 col-sm-4 col-md-3 control-label">回答</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= c.text_area :answer, class: 'form-control' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+          
+        <div class="form-group">
+          <label for="remark" class="col col-xs-12 col-sm-4 col-md-3 control-label">備考欄</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+            <%= c.text_area :remark, class: 'form-control' %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+        </div>
+        <div class="form-group">
+          <div class="col col-xs-9 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+            <%= c.submit class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+      
+    </fieldset>
+    <% end %>
+</div>

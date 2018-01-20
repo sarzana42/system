@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  custompattern: one
+  markpoint: one
+  markmethod: one
+  markcolor: MyString
+  outsourcing: one
+
+two:
+  custompattern: two
+  markpoint: two
+  markmethod: two
+  markcolor: MyString
+  outsourcing: two

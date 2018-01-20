@@ -1,3 +1,153 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* Scss Document */
+table {
+  border-collapse: collapse;
+  width: 95%;
+  margin: 8px auto; }
+  table th {
+    padding: 2px;
+    border: 1px solid black; }
+  table td {
+    border: 1px solid black;
+    padding: 2px; }
+
+.size1 {
+  width: 100px; }
+
+.size2 {
+  width: 180px; }
+
+.size3 {
+  width: 300px; }
+
+.size4 {
+  width: 140px; }
+
+.size5 {
+  width: 50px; }
+
+.size6 {
+  width: 100px; }
+
+.size7 {
+  width: 100px; }
+
+.blue-text {
+  color: deepskyblue; }
+
+.total .total-select {
+  display: flex; }
+
+.month {
+  display: flex;
+  width: 900px;
+  border-bottom: 1px solid black;
+  margin-bottom: 12px;
+  background-color: #efefef; }
+  .month p {
+    margin-right: 32px;
+    margin-bottom: 8px; }
+
+.total {
+  background-color: #efefef; }
+
+.total-select {
+  background-color: #efefef;
+  width: 900px;
+  border-bottom: 1px solid black; }
+  .total-select p {
+    margin-right: 32px;
+    margin-bottom: 8px; }
+
+.main {
+  background-color: #efefef;
+  width: 900px;
+  border: 1px solid black; }
+  .main .order-top {
+    text-align: center;
+    margin-bottom: 12px; }
+  .main .order-number {
+    margin-left: 50px; }
+  .main .main-box1 {
+    display: flex;
+    border: 1px solid black;
+    width: 800px;
+    margin: 0 auto; }
+    .main .main-box1 ul {
+      width: 50%;
+      list-style-type: none; }
+      .main .main-box1 ul li {
+        display: flex; }
+        .main .main-box1 ul li p {
+          margin: 8px 12px 8px 0; }
+  .main .main-box2 {
+    width: 800px;
+    margin: 0 auto; }
+    .main .main-box2 ul {
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      width: 800px; }
+      .main .main-box2 ul li {
+        border: 1px solid black; }
+  .main .main-box3 ul {
+    margin: 10px auto;
+    width: 800px;
+    list-style-type: none;
+    display: flex;
+    padding: 0; }
+    .main .main-box3 ul li {
+      border: 1px solid black; }
+  .main .main-box4 {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    height: 250px; }
+    .main .main-box4 .main-box4-left {
+      width: 600px;
+      border: 1px solid black;
+      margin-bottom: 8px;
+      margin-right: 8px; }
+      .main .main-box4 .main-box4-left p {
+        margin: 8px 0;
+        text-align: right;
+        padding-right: 12px; }
+    .main .main-box4 .main-box4-right {
+      width: 182px;
+      border: 1px solid black;
+      margin-bottom: 8px; }
+  .main .main-box5 {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    height: 250px; }
+    .main .main-box5 .main-box5-left {
+      width: 600px;
+      border: 1px solid black;
+      margin-bottom: 8px;
+      margin-right: 8px; }
+      .main .main-box5 .main-box5-left p {
+        margin: 8px 0;
+        text-align: right;
+        padding-right: 12px; }
+    .main .main-box5 .main-box5-right {
+      width: 182px;
+      border: 1px solid black;
+      margin-bottom: 8px; }
+  .main .option {
+    width: 650px;
+    text-align: right; }
+  .main .main-box6 {
+    width: 800px;
+    margin: 12px auto;
+    height: 60px;
+    border: 1px solid black; }
+  .main .main-box7 {
+    width: 800px;
+    margin: 12px auto;
+    height: 60px;
+    border: 1px solid black; }
+
+/*# sourceMappingURL=style.css.map */
