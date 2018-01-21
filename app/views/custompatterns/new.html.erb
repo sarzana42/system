@@ -73,7 +73,15 @@
 							<%= cp.collection_select :product_id, Product.all, :id, :productid, {prompt: true}, {class: "form-control"} %>
 						</td>
 					</tr>
-					
+					<tr>
+						<td class="size1 blue-text">
+							イメージ
+						</td>
+						<td colspan="4">
+							<%= image_tag @custompattern.custompatternimage.url if @custompattern.custompatternimage? %>
+                  			<%= cp.file_field :custompatternimage %>
+						</td>
+					</tr>
 				</table>
 				<p class="option blue-text"><%= link_to "+新規商品追加", new_order_custompattern_path(@order) %></p>
 				
