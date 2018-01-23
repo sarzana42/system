@@ -1,32 +1,11 @@
 <section class="content">
 <div class="total">
-<div class="total-select">
-	<p class="blue-text">
-		<%= link_to "注文編集", edit_order_path %>
-	</p>
-	<p class="blue-text">
-		この注文についてのお問い合わせ内容
-	</p>
-</div>
-<div class="month blue-text">
-	<p>
-		追加：
-	</p>
-	<p>
-		20161212綾羽高校テニス部
-	</p>
-	<p>
-		20151212綾羽高校テニス部
-	</p>
-	<p>
-		20141212綾羽高校テニス部
-	</p>
-</div>
+
 <div class="main">
 	<h2 class="order-top">受注書</h2>
 	<span class="order-number">受注番号：</span><span class="order-number"><%= @order.orderid %></span><br>
 	<span class="order-number">顧客番号：</span><span class="order-number"><%= @order.customer_id %></span><br>
-	<span class="order-number">注文名：</span><span class="order-number"><%= @order.ordername %></span>
+    <span class="order-number">注文名：</span><span class="order-number"><%= @order.ordername %></span>
 	<div class="main-box1">
 		<ul>
 			<li>
@@ -79,17 +58,18 @@
 			<li class="size3"><%= @order.collectionmethod.name %></li>
 		</ul>
 	</div>
-<% @custompatterns.each do |cp| %>
+
+<%= form_for(@custompattern, html: { class: "form-horizontal" }) do |cp| %>
 	<div class="main-box4">
 		<div class="main-box4-left">
 				<div class="top">
 				<table>
 					<tr>
 						<td class="size1 blue-text">
-							<%= cp.product.productid %>
+							
 						</td>
 						<td colspan="4">
-							<%= cp.product.name %>
+							<%= cp.collection_select :product_id, Product.all, :id, :productid, {prompt: true}, {class: "form-control"} %>
 						</td>
 					</tr>
 					<tr>
@@ -127,10 +107,24 @@
 						</td>
 					</tr>
 				</table>
-				<p class="left-positon">加工明細</p>
+				<p class="blue-text right-positon">+商品数量追加</p>
 			</div>
 			<div class="bottom">
 				<table>
+					<tr>
+						<td class="size1">
+							加工明細
+						</td>
+						<td class="size2">
+							加工場所
+						</td>
+						<td class="size2">
+							加工方法
+						</td>
+						<td>
+							カラー
+						</td>
+					</tr>
 					<tr>
 						<td class="size1">
 							加工明細
@@ -146,27 +140,24 @@
 						</td>
 					</tr>
 				</table>
-
-			</div>
-			<div class="bottom">
 				<p class="blue-text right-postion">
-					<%= link_to "〇編集", edit_custompattern_path(cp) %>｜<%= link_to "-削除", cp, method: :delete, data: {confirm: '削除してもいいですか？'} %>
+					+加工追加
 				</p>
+		<%= image_tag @custompattern.custompatternimage.url if @custompattern.custompatternimage? %>
+        <%= cp.file_field :custompatternimage %>
 			</div>
 		</div>
 		<div class="main-box4-right">
-			<% if cp.custompatternimage? %>
-　　            <%= image_tag cp.custompatternimage.thumb.url %>
-　            <% else %>
-　　            <%= image_tag 'noimage.gif' %>
-　            <% end %>
+		
 			
 		</div>
+		
 	</div>
-<% end %>
-	<p class="option blue-text"><%= link_to "+新規商品追加", new_order_custompattern_path(@order) %></p>
-	<div class="main-box6"></div>
+
+	<div class="main-box7"><p class="option"><%= cp.submit class: "btn btn-success btn-lg" %></p></div>
 	<div class="main-box7"></div>
+	<% end %>
 </div>
 	</div>
 </section>
+

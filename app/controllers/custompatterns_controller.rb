@@ -6,17 +6,38 @@ class CustompatternsController < ApplicationController
     @order = Order.find(params[:order_id])
   end
   
+  def show
+  end
+  
   def create
+    #binding.pry
     @custompattern = Custompattern.new(custompattern_params)
-    @custompattern.product_id = params[:product_id]
+    @custompattern.order_id = params[:order_id]
     if @custompattern.save
       flash[:success] = "custompattern created!"
-      redirect_to order_custompattern_path(params[:product_id])
+      redirect_to order_path(params[:order_id])
     else
-      @product = Product.find(params[:product_id])
+      @order = Order.find(params[:order_id])
       flash.now[:alert] = "メッセージの保存に失敗しました。"
       render 'new'
     end        
+  end
+  
+  def edit
+    @order = @custompattern.order
+  end
+  
+  def update
+    if @custompattern.update(custompattern_params)
+      redirect_to order_path, notice: '編集しました'
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @custompattern.destroy
+    redirect_to order_path, notice: '削除しました'
   end
   
 private
