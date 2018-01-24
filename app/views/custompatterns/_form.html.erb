@@ -59,7 +59,9 @@
 		</ul>
 	</div>
 
-<%= form_for(@custompattern, html: { class: "form-horizontal" }) do |cp| %>
+<% @order = nil if not @custompattern.new_record? %>
+
+<%= form_for([@order, @custompattern], html: { class: "form-horizontal" }) do |cp| %>
 	<div class="main-box4">
 		<div class="main-box4-left">
 				<div class="top">
