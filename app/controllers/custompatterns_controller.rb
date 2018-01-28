@@ -29,7 +29,7 @@ class CustompatternsController < ApplicationController
   
   def update
     if @custompattern.update(custompattern_params)
-      redirect_to order_path, notice: '編集しました'
+      redirect_to order_path(@custompattern.order), notice: '編集しました'
     else
       render 'edit'
     end
@@ -37,7 +37,7 @@ class CustompatternsController < ApplicationController
   
   def destroy
     @custompattern.destroy
-    redirect_to order_path, notice: '削除しました'
+    redirect_to order_path(@custompattern.order), notice: '削除しました'
   end
   
 private
