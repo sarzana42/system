@@ -1,0 +1,129 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>登録画面</h1>
+  <br>
+  <p><%= link_to "一覧に戻る", outsourcings_path %></p>
+  <br>
+  （<%= link_to "編集する", edit_outsourcing_path %>｜
+<%= link_to "削除する", outsourcing_path, method: :delete, data: { confirm: "本当によろしいですか？"} %>）
+
+</section>
+
+<section class="content">
+  <div class="box">
+    <div class="box-body">
+　    <div class="form-group">
+          <label for="id" class="col col-xs-12 col-sm-4 col-md-3 control-label">ID</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @outsourcing.id %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="kubun" class="col col-xs-12 col-sm-4 col-md-3 control-label">会社名</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @outsourcing.name%>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      
+      <div class="form-group">
+          <label for="groupcus" class="col col-xs-12 col-sm-4 col-md-3 control-label">フリガナ</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @outsourcing.furigana %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="zip" class="col col-xs-12 col-sm-4 col-md-3 control-label">郵便番号</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @outsourcing.zip %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="prefecture" class="col-xs-12 col col-sm-4 col-md-3 control-label">都道府県</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= @outsourcing.prefecture_id %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="address1" class="col col-xs-12 col-sm-4 col-md-3 control-label">市町村</label>
+          <div class="col col-xs-7 col-sm-4 col-md-4">
+            <div class="input-group">
+              <%= @outsourcing.address1 %>
+            </div>
+          </div>
+          <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-5"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="address2" class="col col-xs-12 col-sm-4 col-md-3 control-label">それ以降</label>
+          <div class="col col-xs-7 col-sm-4 col-md-4">
+            <div class="input-group">
+              <%= @outsourcing.address2 %>
+            </div>
+          </div>
+          <div class="col-xs-offset-5 col-sm-offset-4 col-md-offset-5"></div>
+      </div>
+      <br>
+      <div class="form-group">
+          <label for="inchargename" class="col col-xs-12 col-sm-4 col-md-3 control-label">担当者名</label>
+          <div class="col col-xs-12 col-sm-6 col-md-7">
+              <%= @outsourcing.inchargename %>
+          </div>
+          <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+      </div>
+      <br>
+      
+    <div class="form-group">
+      <label for="inchargephone" class="col col-xs-12 col-sm-4 col-md-3 control-label">担当者携帯</label>
+      <div class="col col-xs-12 col-sm-6 col-md-7">
+          <%= @outsourcing.inchargephone %>
+      </div>
+      <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="inchargemail" class="col col-xs-12 col-sm-4 col-md-3 control-label">担当者メール</label>
+      <div class="col col-xs-12 col-sm-6 col-md-7">
+          <%= @outsourcing.inchargemail %>
+      </div>
+      <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="tel" class="col col-xs-12 col-sm-4 col-md-3 control-label">TEL</label>
+      <div class="col col-xs-12 col-sm-6 col-md-7">
+          <%= @outsourcing.tel %>
+      </div>
+      <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="fax" class="col col-xs-12 col-sm-4 col-md-3 control-label">FAX</label>
+      <div class="col col-xs-12 col-sm-6 col-md-7">
+          <%= @outsourcing.fax %>
+      </div>
+      <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="companyname" class="col col-xs-12 col-sm-4 col-md-3 control-label">会社メール</label>
+      <div class="col col-xs-12 col-sm-6 col-md-7">
+          <%= @outsourcing.companyname %>
+      </div>
+      <div class="col-xs-offset-0 col-sm-offset-2 col-md-offset-2"></div>
+    </div>
+    <br>
+    
+    
+    </div>
+  </div>    
+</section>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'outsourcings/index'
+
   get 'custompatterns/new'
 
   root to: 'static_pages#home'
@@ -9,7 +11,7 @@ Rails.application.routes.draw do
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, :customers, :contacthistories
+  resources :users, :customers, :contacthistories, :outsourcings
 
   resources :products do
     resources :productdetails, shallow: true

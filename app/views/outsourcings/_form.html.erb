@@ -1,0 +1,109 @@
+<div class="well">
+    <%= form_for(@outsourcing, html: { class: "form-horizontal" }) do |os| %>
+    <fieldset>
+      <legend>登録・編集</legend>
+        <% if @outsourcing.errors.present? %>
+           <%= alert %>
+           <% @outsourcing.errors.full_messages.each do |full_message| %>
+             <%= full_message %>
+          <% end %>
+        <% end %>
+      <div class="form-group">
+          <label for="name" class="col col-xs-12 col-sm-4 col-md-3 control-label">会社名</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :name, class: 'form-control', placeholder: '有限会社レイホープ' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="furigana" class="col col-xs-12 col-sm-4 col-md-3 control-label">フリガナ</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :furigana, class: 'form-control', placeholder: 'ユ）レイホープ' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="zip" class="col col-xs-12 col-sm-4 col-md-3 control-label">郵便番号</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :zip, class: 'form-control', placeholder: '5200043' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+        <label for="prefecture" class="col col-xs-12 col-sm-4 col-md-3 control-label">都道府県</label>
+        <div class="col-xs-12 colcol-xs-10 col-sm-6 col-md-7">
+          <div class="input-group">
+            <%= os.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: true}, {class: "form-control"} %>
+          </div>
+        </div>
+        <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2"></div>
+      </div>
+      
+      <div class="form-group">
+          <label for="address1" class="col col-xs-12 col-sm-4 col-md-3 control-label">市町村</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :address1, class: 'form-control', placeholder: '大津市中央' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="address2" class="col col-xs-12 col-sm-4 col-md-3 control-label">それ以降</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :address2, class: 'form-control', placeholder: '4丁目1-14' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="inchargename" class="col col-xs-12 col-sm-4 col-md-3 control-label">担当者名</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :inchargename, class: 'form-control', placeholder: '山田太郎' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="inchargephone" class="col col-xs-12 col-sm-4 col-md-3 control-label">担当者携帯</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :inchargephone, class: 'form-control', placeholder: '09022221111' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="inchargemail" class="col col-xs-12 col-sm-4 col-md-3 control-label">担当者メール</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :inchargemail, class: 'form-control', placeholder: 'aaa@aaa.com' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="companyname" class="col col-xs-12 col-sm-4 col-md-3 control-label">会社メール</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :companyname, class: 'form-control', placeholder: 'aaa@aaa.com' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="tel" class="col col-xs-12 col-sm-4 col-md-3 control-label">TEL</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :tel, class: 'form-control', placeholder: '0775227666' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      <div class="form-group">
+          <label for="fax" class="col col-xs-12 col-sm-4 col-md-3 control-label">FAX</label>
+          <div class="col col-xs-5 col-sm-3 col-md-3">
+            <%= os.text_field :fax, class: 'form-control', placeholder: '05058383818' %>
+          </div>
+          <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-3"></div>
+      </div>
+      
+        
+        <div class="form-group">
+          <div class="col col-xs-9 col-xs-offset-3 col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3">
+            <%= os.submit class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+      
+    </fieldset>
+    <% end %>
+  </form>
+</div>

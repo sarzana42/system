@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121113550) do
+ActiveRecord::Schema.define(version: 20180124145024) do
 
   create_table "collectionmethods", force: :cascade do |t|
     t.string   "name"
@@ -163,6 +163,24 @@ ActiveRecord::Schema.define(version: 20180121113550) do
   end
 
   create_table "outsourcings", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "furigana"
+    t.string   "zip"
+    t.integer  "prefecture_id"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "inchargename"
+    t.string   "inchargephone"
+    t.string   "inchargemail"
+    t.string   "companyname"
+    t.string   "tel"
+    t.string   "fax"
+    t.index ["prefecture_id"], name: "index_outsourcings_on_prefecture_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
