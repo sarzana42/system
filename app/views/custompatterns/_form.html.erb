@@ -74,42 +74,44 @@
 							<%= cp.collection_select :product_id, Product.all, :id, :productid, {prompt: true}, {class: "form-control"} %>
 						</td>
 					</tr>
+					<%= cp.fields_for :@orderdetail do |orderdetail_form| %>
 					<tr>
 						<td class="size1">
 							
 						</td>
 						<td class="size2">
-							ブラック
+							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :colorname, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size5">
-							xs
+							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :sizename, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size5">
-							20
+        					<%= orderdetail_form.text_field :orderamount %>
 						</td>
 						<td>
 							
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="size1">
 							
 						</td>
 						<td class="size2">
-							ブラック
+							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :colorname, {prompt: true}, {class: "form-control"} %>
+						</td>
+						<td class="size2">
+							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :sizename, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size5">
-							s
+        					<%= orderdetail_form.text_field :orderamount %>
 						</td>
-						<td class="size5">
-							10
-						</td>
-						<td>
-							
+						<td class="size1">
+						<p class="blue-text right-positon">+商品追加</p>	
 						</td>
 					</tr>
+					<% end %>
 				</table>
-				<p class="blue-text right-positon">+商品数量追加</p>
+				
 			</div>
 			<div class="bottom">
 				<table>

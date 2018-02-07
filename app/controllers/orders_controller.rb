@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
   
   def show
     @custompatterns = @order.custompatterns
+    
   end
   
   def create
