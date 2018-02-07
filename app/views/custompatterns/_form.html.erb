@@ -74,16 +74,16 @@
 							<%= cp.collection_select :product_id, Product.all, :id, :productid, {prompt: true}, {class: "form-control"} %>
 						</td>
 					</tr>
-					<%= cp.fields_for :@orderdetail do |orderdetail_form| %>
+					<%= cp.fields_for :orderdetails do |orderdetail_form| %>
 					<tr>
 						<td class="size1">
 							
 						</td>
 						<td class="size2">
-							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :colorname, {prompt: true}, {class: "form-control"} %>
+							<%= orderdetail_form.collection_select :colorname, Productdetail.all, :id, :colorname, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size5">
-							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :sizename, {prompt: true}, {class: "form-control"} %>
+							<%= orderdetail_form.collection_select :sizename, Productdetail.all, :id, :sizename, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size5">
         					<%= orderdetail_form.text_field :orderamount %>

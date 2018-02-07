@@ -4,6 +4,8 @@ class CustompatternsController < ApplicationController
   def new
     @custompattern = Custompattern.new
     @order = Order.find(params[:order_id])
+    @custompattern.orderdetails.build
+    @custompattern.orderdetails.build
   end
   
   def show
