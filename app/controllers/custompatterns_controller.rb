@@ -12,7 +12,7 @@ class CustompatternsController < ApplicationController
   end
   
   def create
-    #binding.pry
+    binding.pry
     @custompattern = Custompattern.new(custompattern_params)
     @custompattern.order_id = params[:order_id]
     if @custompattern.save
@@ -45,7 +45,7 @@ class CustompatternsController < ApplicationController
 private
   
   def custompattern_params
-    params.require(:custompattern).permit(:product_id, :order_id, :custompatternimage, orderdetails_attributes: [:id, :colorname, :sizename, :orderamount])
+    params.require(:custompattern).permit(:product_id, :order_id, :custompatternimage, orderdetails_attributes: [:id, :productdetail_id, :orderamount])
   end
 
   def set_custompattern
