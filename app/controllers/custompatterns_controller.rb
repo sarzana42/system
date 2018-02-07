@@ -12,7 +12,7 @@ class CustompatternsController < ApplicationController
   end
   
   def create
-    binding.pry
+    #binding.pry
     @custompattern = Custompattern.new(custompattern_params)
     @custompattern.order_id = params[:order_id]
     if @custompattern.save
