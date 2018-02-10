@@ -23,8 +23,11 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>商品型番</th>
-            <th>商品名</th>
+            <th>詳細ID</th>
+            <th>カラー</th>
+            <th>サイズ</th>
+            <th>定価</th>
+            <th>仕入価格</th>
             <th>編集</th>
             <th>確認</th>
             <th>削除</th>
@@ -37,6 +40,9 @@
             <%= productdetail.id %>
           </td>
           <td><%= productdetail.colorname %></td>
+          <td><%= productdetail.sizename %></td>
+          <td><%= productdetail.vprice %></td>
+          <td><%= productdetail.price %></td>
           <td><%= link_to "編集", edit_productdetail_path(productdetail) %></td>
           <td><%= link_to "確認", productdetail_path(productdetail) %></td>
           <td><%= link_to "削除", productdetail, method: :delete, data: {confirm: '削除してもいいですか？'} %></td>

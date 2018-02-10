@@ -45,7 +45,7 @@ class CustompatternsController < ApplicationController
 private
   
   def custompattern_params
-    params.require(:custompattern).permit(:product_id, :order_id, :custompatternimage, orderdetails_attributes: [:id, :productdetail_id, :orderamount])
+    params.require(:custompattern).permit(:product_id, :order_id, :custompatternimage, orderdetails_attributes: [:custompattern_id, :productdetail_id, :orderamount])
   end
 
   def set_custompattern
