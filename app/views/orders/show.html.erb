@@ -92,40 +92,27 @@
 							<%= cp.product.name %>
 						</td>
 					</tr>
+					<% cp.orderdetails.each do |od| %>
 					<tr>
 						<td class="size1">
 							
 						</td>
 						<td class="size2">
 							
+							<%= od.productdetail.colorname %>
 						</td>
 						<td class="size5">
-							xs
+							
+							<%= od.productdetail.sizename %>
 						</td>
 						<td class="size5">
-							20
+							<%= od.orderamount %>
 						</td>
 						<td>
-							
+							<%= od.remark %>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							
-						</td>
-						<td class="size2">
-							ブラック
-						</td>
-						<td class="size5">
-							s
-						</td>
-						<td class="size5">
-							10
-						</td>
-						<td>
-							
-						</td>
-					</tr>
+					<% end %>
 				</table>
 				<p class="left-positon">加工明細</p>
 			</div>
@@ -145,20 +132,22 @@
 							カラー
 						</td>
 					</tr>
+					<% cp.markorders.each do |mo| %>
 					<tr>
 						<td class="size1">
-							自社加工
+							<%= mo.outsourcing.name %>
 						</td>
 						<td class="size2">
-							左袖
+							<%= mo.markpoint.name %>
 						</td>
 						<td class="size2">
-							シルクプリント
+							<%= mo.markmethod.name %>
 						</td>
 						<td>
-							ホワイト
+							<%= mo.markcolor %>
 						</td>
 					</tr>
+					<% end %>
 				</table>
 
 			</div>

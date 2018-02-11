@@ -83,10 +83,12 @@
 							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :view_color_and_size, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size5">
-							
+							<%= orderdetail_form.text_field :orderamount %>
 						</td>
 						<td class="size5">
-        					<%= orderdetail_form.text_field :orderamount %>
+        					<%= orderdetail_form.label :_destroy do %>
+        					    <%= orderdetail_form.check_box :_destroy %> 削除
+        					<% end %>    
 						</td>
 						<td>
 							
@@ -112,21 +114,31 @@
 						<td>
 							カラー
 						</td>
+						<td>
+							
+						</td>
 					</tr>
+					<%= cp.fields_for :markorders do |markorder_form| %>	
 					<tr>
 						<td class="size1">
-							テックプリント
+							<%= markorder_form.collection_select :outsourcing_id, Outsourcing.all, :id, :name, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size2">
-							左袖
+							<%= markorder_form.collection_select :markpoint_id, Markpoint.all, :id, :name, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td class="size2">
-							シルクプリント
+							<%= markorder_form.collection_select :markmethod_id, Markmethod.all, :id, :name, {prompt: true}, {class: "form-control"} %>
 						</td>
 						<td>
-							ホワイト
+							<%= markorder_form.text_field :markcolor %>
+						</td>
+						<td>
+							<%= markorder_form.label :_destroy do %>
+        					    <%= markorder_form.check_box :_destroy %> 削除
+        					<% end %>
 						</td>
 					</tr>
+					<% end %>
 				</table>
 				<p class="blue-text right-postion">
 					+加工追加

@@ -6,6 +6,10 @@ class CustompatternsController < ApplicationController
     @order = Order.find(params[:order_id])
     @custompattern.orderdetails.build
     @custompattern.orderdetails.build
+    @custompattern.orderdetails.build
+    @custompattern.markorders.build
+    @custompattern.markorders.build
+    
   end
   
   def show
@@ -27,6 +31,9 @@ class CustompatternsController < ApplicationController
   
   def edit
     @order = @custompattern.order
+    @custompattern.orderdetails.build
+    @custompattern.markorders.build
+    
   end
   
   def update
@@ -45,7 +52,7 @@ class CustompatternsController < ApplicationController
 private
   
   def custompattern_params
-    params.require(:custompattern).permit(:product_id, :order_id, :custompatternimage, orderdetails_attributes: [:custompattern_id, :productdetail_id, :orderamount])
+    params.require(:custompattern).permit(:product_id, :order_id, :custompatternimage, orderdetails_attributes: [:id, :productdetail_id, :orderamount, :_destroy], markorders_attributes: [:id, :outsourcing_id, :markpoint_id, :markmethod_id, :markcolor, :_destroy])
   end
 
   def set_custompattern
