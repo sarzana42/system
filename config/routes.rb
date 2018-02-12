@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'outsourcings/index'
+  get 'markpoints/index'
 
-  get 'custompatterns/new'
+  get 'markmethods/index'
+
+  get 'makers/index'
+
+  get 'maildms/index'
+
+  get 'kubuns/index'
+
+  get 'deliverymethods/index'
 
   root to: 'static_pages#home'
 
@@ -11,7 +19,8 @@ Rails.application.routes.draw do
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, :customers, :contacthistories, :outsourcings
+  resources :users, :customers, :contacthistories, :outsourcings, 
+            :deliverymethods, :kubuns, :maildms, :makers, :markmethods, :markpoints
 
   resources :products do
     resources :productdetails, shallow: true

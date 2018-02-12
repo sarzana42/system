@@ -1,0 +1,2 @@
+module MaildmsHelper
+end
