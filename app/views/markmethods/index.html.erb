@@ -1,2 +1,27 @@
-<h1>Markmethods#index</h1>
-<p>Find me in app/views/markmethods/index.html.erb</p>
+<section class="content-header">
+  <h1>加工方法一覧</h1>
+</section>
+<section class="content">
+<%= link_to "新規登録", new_markmethod_path(@markmethod) %>
+<div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>加工方法</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @markmethods.each do |markmethod| %>
+        <tr>
+          <td>
+            <%= markmethod.id %>
+          </td>
+          <td><%= link_to markmethod.name, markmethod_path(markmethod) %></td>
+          <td></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div><!-- /.box -->
+</section>

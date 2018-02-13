@@ -1,3 +1,15 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		alert('');
+		//product選択したら
+		//$('#productchange').on('change', function(){
+		$('#productchange').change(function(){		
+		});
+	});
+	
+</script>
+
+
 <section class="content">
 <div class="total">
 
@@ -71,7 +83,7 @@
 							
 						</td>
 						<td colspan="4">
-							<%= cp.collection_select :product_id, Product.all, :id, :productid, {prompt: true}, {class: "form-control"} %>
+							<%= cp.collection_select :product_id, Product.all, :id, :productid, {prompt: true}, {class: "form-control", :id => "productchange"} %>
 						</td>
 					</tr>
 					<%= cp.fields_for :orderdetails do |orderdetail_form| %>

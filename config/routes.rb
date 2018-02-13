@@ -19,8 +19,9 @@ Rails.application.routes.draw do
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :users, :customers, :contacthistories, :outsourcings, 
-            :deliverymethods, :kubuns, :maildms, :makers, :markmethods, :markpoints
+  resources :users, :customers, :contacthistories, :outsourcings,
+            :deliverymethods, :kubuns, :maildms, :makers,
+            :markmethods, :markpoints
 
   resources :products do
     resources :productdetails, shallow: true

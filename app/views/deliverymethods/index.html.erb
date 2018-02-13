@@ -1,2 +1,27 @@
-<h1>Deliverymethods#index</h1>
-<p>Find me in app/views/deliverymethods/index.html.erb</p>
+<section class="content-header">
+  <h1>納品方法一覧</h1>
+</section>
+<section class="content">
+<%= link_to "新規登録", new_deliverymethod_path(@deliverymethod) %>
+<div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>納品方法</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <% @deliverymethods.each do |deliverymethod| %>
+        <tr>
+          <td>
+            <%= deliverymethod.id %>
+          </td>
+          <td><%= link_to deliverymethod.name, deliverymethod_path(deliverymethod) %></td>
+          <td><%= deliverymethod.remark %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div><!-- /.box -->
+</section>

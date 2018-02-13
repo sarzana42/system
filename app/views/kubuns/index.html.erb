@@ -1,2 +1,27 @@
-<h1>Kubuns#index</h1>
-<p>Find me in app/views/kubuns/index.html.erb</p>
+<section class="content-header">
+  <h1>顧客区分一覧</h1>
+</section>
+<section class="content">
+<%= link_to "新規登録", new_kubun_path(@kubun) %>
+<div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>顧客区分</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @kubuns.each do |kubun| %>
+        <tr>
+          <td>
+            <%= kubun.id %>
+          </td>
+          <td><%= link_to kubun.name, kubun_path(kubun) %></td>
+          <td></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div><!-- /.box -->
+</section>
