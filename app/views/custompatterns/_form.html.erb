@@ -1,12 +1,29 @@
 <script type="text/javascript">
 	$(function(){
 		$('#productchange').change(function(){
-			alert('changed!');
-			/*
-			$('').load(''), function(){
-			   $('').xxx('')
-			});
-			*/
+            var val = $(this).val();
+
+            // Ajax 送信
+            $.ajax({
+                url:'/products/' + val + '/productdetails.json', // 通信先のURL
+                type:'GET',    // 使用するHTTPメソッド (GET/ POST)
+                timeout:1000,  // 通信のタイムアウトの設定(ミリ秒)
+            }).done(function(data1,textStatus,jqXHR) {
+                // 成功したときの処理
+                var data2 = JSON.stringify(data1);
+                var data3 = JSON.parse(data2);
+                console.log(data3);
+                console.log(data3[0]["colorname"]);
+
+                // TODO: セレクトボックスの数分繰り返す
+                var selectbox = $('#custompattern_orderdetails_attributes_0_productdetail_id')
+
+                  // セレクトボックスの値をいじる
+                  selectbox.empty();
+
+                  // TODO: data3 からデータを取り出してセレクトボックスを作る
+                    selectbox.append($("<option>").val("1").text("カラー1"));
+            })
 		});	
 	});
 	
