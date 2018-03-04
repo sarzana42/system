@@ -8,22 +8,24 @@
                 url:'/products/' + val + '/productdetails.json', // 通信先のURL
                 type:'GET',    // 使用するHTTPメソッド (GET/ POST)
                 timeout:1000,  // 通信のタイムアウトの設定(ミリ秒)
-            }).done(function(data1,textStatus,jqXHR) {
+            }).done(function(data, textStatus, jqXHR) {
                 // 成功したときの処理
-                var data2 = JSON.stringify(data1);
-                var data3 = JSON.parse(data2);
-                console.log(data3);
-                console.log(data3[0]["colorname"]);
+                var json = JSON.parse(JSON.stringify(data));
 
-                // TODO: セレクトボックスの数分繰り返す
-                var selectbox = $('#custompattern_orderdetails_attributes_0_productdetail_id')
+                var selectboxes = $('.select_productdetail');
+                $.each(selectboxes, function (i, element) {
+                    var selectbox = $(element);
+                    // セレクトボックス空にして
+                    selectbox.empty();
 
-                  // セレクトボックスの値をいじる
-                  selectbox.empty();
-
-                  // TODO: data3 からデータを取り出してセレクトボックスを作る
-                    selectbox.append($("<option>").val("1").text("カラー1"));
-            })
+                    // Ajax のレスポンスデータを取り出してセレクトボックスを作る
+                    for (var i = 0; i < json.length; i++) {
+                       var productdetail = json[i];
+                       var select_text = productdetail["colorname"] + "(" + productdetail["sizename"]+ ")";
+                       selectbox.append($("<option>").val(productdetail["id"]).text(select_text));
+                    }
+                });
+             })
 		});	
 	});
 	
@@ -111,7 +113,7 @@
 							
 						</td>
 						<td class="size2">
-							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :view_color_and_size, {prompt: true}, {class: "form-control"} %>
+							<%= orderdetail_form.collection_select :productdetail_id, Productdetail.all, :id, :view_color_and_size, {prompt: true}, {class: "form-control select_productdetail"} %>
 						</td>
 						<td class="size5">
 							<%= orderdetail_form.text_field :orderamount %>
